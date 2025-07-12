@@ -68,7 +68,7 @@ Temple-Run/
 5. Controls:
 
    * ← / → or A/D: Move left/right
-   * Spacebar: Jump
+   * Spacebar: Jump (if implemented)
    * Down Arrow: Slide (if implemented)
 
 ---
