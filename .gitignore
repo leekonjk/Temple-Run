@@ -1,0 +1,114 @@
+# =========================
+# 📁 Unity Project Settings
+# =========================
+
+# Ignore Unity auto-generated folders
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/MemoryCaptures/
+/Recordings/
+/StreamingAssets/aa*/ 
+
+# ====================
+# 💾 Project Structure
+# ====================
+
+# Keep only these folders
+/*
+!.gitignore
+!Assets/
+!Packages/
+!ProjectSettings/
+!UserSettings/    # Optional: if using team-wide preferences
+
+# =====================
+# 🔁 Unity Meta Caches
+# =====================
+
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.apk
+*.aab
+*.unitypackage
+*.unitypackage.meta
+*.blend1
+*.blend1.meta
+*.log
+*.DotSettings.user
+mono_crash.*
+sysinfo.txt
+crashlytics-build.properties
+
+# =====================
+# 🔍 IDE & Build Tools
+# =====================
+
+.vs/
+.gradle/
+ExportedObj/
+.consulo/
+.idea/
+
+# JetBrains Rider plugin (auto-generated)
+Assets/Plugins/Editor/JetBrains*
+
+# VS Code local settings (optional)
+.vscode/
+
+# ====================
+# 🧪 Test/Debug Files
+# ====================
+
+InitTestScene*.unity*
+Assets/InitTestScene*.unity*
+
+# ========================
+# 📦 Addressables Support
+# ========================
+
+/ServerData
+/[Aa]ssets/AddressableAssetsData/link.xml*
+/[Aa]ssets/Addressables_Temp*
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+/Assets/StreamingAssets/aa*/ 
+
+# ==========================
+# ⚙️ Visual Scripting Cache
+# ==========================
+
+/Assets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
+/Assets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
+/Assets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
+/Assets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+
+# ==========================
+# 🧊 Collaborate / PlasticSCM
+# ==========================
+
+/.collabignore
+/.plastic/
+/PlasticSCM/
+
+# ========================
+# 🧹 Auto Scene Backups
+# ========================
+
+*.autosave
+*.autosave.meta
