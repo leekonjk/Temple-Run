@@ -87,7 +87,8 @@ Temple-Run/
 
 ## 📷 Screenshots (Coming Soon)
 
-> You can add gameplay screenshots or GIFs to showcase the game.
+<img width="852" height="458" alt="image" src="https://github.com/user-attachments/assets/096cff15-2991-4d7f-9aec-7c3cc80f4f9e" />
+
 
 ---
 
