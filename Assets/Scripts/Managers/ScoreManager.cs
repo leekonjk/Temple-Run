@@ -4,6 +4,7 @@ public class ScoreManager : MonoBehaviour
 
     [Header("Text to display score")]
     [SerializeField] private TMPro.TextMeshProUGUI scoreText;
+    [SerializeField] Player_Movement playerMovement;
     [SerializeField] private GameObject GameOverText;
     private int score = 0;
 
@@ -19,5 +20,7 @@ public class ScoreManager : MonoBehaviour
     public void GameOver()
     {
         GameOverText.SetActive(true);
+        Time.timeScale = 0.5f;
+        playerMovement.enabled = false;
     }
 }
