@@ -11,7 +11,7 @@ public class obstacle_spwaner : MonoBehaviour
     [SerializeField] GameObject Coin;
 
     [Header("Spawning Chances")]
-    [SerializeField]  float AppleSpwanChance = 0.3f;
+    [SerializeField] float AppleSpwanChance = 0.3f;
     [SerializeField] float CoinSpwanChance = 0.5f;
     [SerializeField] float[] distance_at_which_lane_spwan = { 2.6f, 0, -2.6f };
     [SerializeField] float distance_between_coin_y = 2f;
@@ -24,14 +24,14 @@ public class obstacle_spwaner : MonoBehaviour
         this.scoreManager = scoreManager;
     }
 
-        void Start()
-        {
-            spwanObstracle();
-            spwanApple();
-            spwanCoin();
-        }
+    void Start()
+    {
+        spwanObstracle();
+        spwanApple();
+        spwanCoin();
+    }
 
-  
+
 
     private void spwanObstracle()
     {
@@ -67,21 +67,21 @@ public class obstacle_spwaner : MonoBehaviour
     }
     private void spwanCoin()
     {
-            if(Random.value > CoinSpwanChance || avaliablelanes.Count <= 0)
-            {
-                return;
-            }
- 
-            int xyz = Random.Range(0, 6);
-            int randomIndex = SpwanRandomNumber(avaliablelanes);
-            float topvalueOFZ = transform.position.z + (distance_between_coin_y * 2F);
+        if (Random.value > CoinSpwanChance || avaliablelanes.Count <= 0)
+        {
+            return;
+        }
+
+        int xyz = Random.Range(0, 6);
+        int randomIndex = SpwanRandomNumber(avaliablelanes);
+        float topvalueOFZ = transform.position.z + (distance_between_coin_y * 2F);
         for (int i = 0; i < xyz; i++)
         {
             float randomz = topvalueOFZ - (i * distance_between_coin_y);
             Vector3 spwanLocation = new Vector3(distance_at_which_lane_spwan[randomIndex], transform.position.y, randomz);
             coin coin2 = Instantiate(Coin, spwanLocation, Quaternion.identity, this.transform).GetComponent<coin>();
             coin2.initialize(scoreManager);
-            }
+        }
 
     }
     private static int SpwanRandomNumber(List<int> avaliablelanes)
