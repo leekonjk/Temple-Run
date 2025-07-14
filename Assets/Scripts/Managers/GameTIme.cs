@@ -1,16 +1,16 @@
-using System;
 using UnityEngine;
 
 public class GameTIme : MonoBehaviour
 {
     [Header("Game Time Settings")]
     [SerializeField] TMPro.TextMeshProUGUI timerText;
-    [SerializeField] float timeLimit = 10f; // Set the time limit in seconds
-    [SerializeField] ScoreManager scoreManager;                                      // Start is called once before the first execution of Update after the MonoBehaviour is created
+    readonly float timeLimit = 5f;
     private float timeRemaining;
+    private ScoreManager scoreManager; // Reference to the ScoreManager script
     void Start()
     {
         timeRemaining = timeLimit;
+        scoreManager = FindAnyObjectByType<ScoreManager>(); // Find the ScoreManager script in the scene
     }
     void Update()
     {
@@ -22,7 +22,14 @@ public class GameTIme : MonoBehaviour
         }
 
     }
-
+    public void IncreaseTime(float amount)
+    {
+        timeRemaining += amount;
+        if (timeRemaining > timeLimit)
+        {
+            timeRemaining = timeLimit; // Cap the time at the limit
+        }
+    }
     private void EndGame()
     {
         scoreManager.GameOver();

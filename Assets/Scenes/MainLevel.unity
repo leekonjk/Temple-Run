@@ -1164,8 +1164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 8124756}
-  timeLimit: 10
-  scoreManager: {fileID: 775821922}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -6318,7 +6316,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5166110321f0e8d48bb439539d46e167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Platfrom: {fileID: 6067835427086323330, guid: 2387a4bcc0e2b7f4481f419a129908cd, type: 3}
+  Chunks_Varinats:
+  - {fileID: 6067835427086323330, guid: 2387a4bcc0e2b7f4481f419a129908cd, type: 3}
+  - {fileID: 4970608369405267608, guid: 4f6d2e0874b79f34f8652831f90dc7fc, type: 3}
+  - {fileID: 4970608369405267608, guid: 3c8c3202245cd1e4d888b6b9b885ae90, type: 3}
+  - {fileID: 4970608369405267608, guid: 30051880a5461cf45aea8e81bacf58ab, type: 3}
+  CheckPoint: {fileID: 6067835427086323330, guid: 27b24e684385c314d8cf63114b61db7b, type: 3}
   Paraent_Platfrom: {fileID: 931798164}
   Chunk_Will_Reload: 10
   Space_between_chunk: 10

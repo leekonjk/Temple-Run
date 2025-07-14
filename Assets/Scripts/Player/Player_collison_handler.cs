@@ -63,5 +63,6 @@ public class Player_collison_handler : MonoBehaviour
         yield return new WaitForSeconds(v); // Wait for 1 second
         // Enable the score text
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
+        Time.timeScale = 1; // Reset the time scale to normal
     }
 }

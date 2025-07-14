@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clock
       objectReference: {fileID: 0}
+    - target: {fileID: 8670401855266775254, guid: 1c66eb7f71b4de54b96780b9cf52bd8b, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8833356127863479123, guid: 1c66eb7f71b4de54b96780b9cf52bd8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
