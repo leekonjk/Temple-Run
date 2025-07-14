@@ -1,7 +1,6 @@
 # 🏃 Temple Run Clone – Unity 3D Endless Runner
-## 🎮 Game Description
 
-The player runs forward through an infinite track while avoiding obstacles, collecting coins 🍎 and apples 🍏, and trying to survive as long as possible.
+The player runs forward through an infinite track while avoiding obstacles, collecting coins 🪙 and apples 🍏, and trying to survive as long as possible.
 Each section of the path is spawned in chunks using procedural generation, ensuring replayability.
 
 ---
