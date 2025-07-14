@@ -1,10 +1,4 @@
 # 🏃 Temple Run Clone – Unity 3D Endless Runner
-
-This is a **Temple Run–style 3D endless runner game** developed using the **Unity Engine**.
-Built as a semester/final project by **Mustafa Riaz** from **COMSATS University Islamabad, Wah Campus**, the game focuses on chunk-based level generation, collectibles, and player movement logic.
-
----
-
 ## 🎮 Game Description
 
 The player runs forward through an infinite track while avoiding obstacles, collecting coins 🍎 and apples 🍏, and trying to survive as long as possible.
