@@ -68,7 +68,7 @@ Temple-Run/
 
 ## 💪 To-Do (Upcoming Features)
 
-* [] Add Score UI and distance tracking
+* [x] Add Score UI and distance tracking
 * [ ] Implement power-ups (e.g., magnet, double coins)
 * [ ] Create a main menu and game over screen
 * [ ] Add sound effects and background music
