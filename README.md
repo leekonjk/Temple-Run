@@ -96,7 +96,7 @@ Temple-Run/
 
 **Mustafa Riaz**
 COMSATS University Islamabad, Wah Campus
-BS Software Engineering (Final Year Student)
+BS Software Engineering (3 Year Student)
 GitHub: [leekonjk](https://github.com/leekonjk)
 
 ---
