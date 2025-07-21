@@ -112,3 +112,14 @@ Assets/InitTestScene*.unity*
 
 *.autosave
 *.autosave.meta
+# ========================
+# 📦 Custom Ignored Folders
+# ========================
+
+# Ignore entire Resources folder
+/Assets/Resources/
+/Assets/Resources.meta
+
+# Ignore entire Imported Assets folder
+/Assets/Imported Assets/
+/Assets/Imported Assets.meta
