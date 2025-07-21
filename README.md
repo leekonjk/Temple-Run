@@ -88,7 +88,7 @@ Temple-Run/
 ## 📷 Screenshots (Coming Soon)
 
 <img width="852" height="458" alt="image" src="https://github.com/user-attachments/assets/096cff15-2991-4d7f-9aec-7c3cc80f4f9e" />
-**Second Immg**
+**Second Img**
 <img width="939" height="325" alt="image" src="https://github.com/user-attachments/assets/f61687d7-c0c7-41a4-b156-fd7800acc3a0" />
 
 
