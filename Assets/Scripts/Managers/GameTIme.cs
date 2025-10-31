@@ -10,7 +10,7 @@ public class GameTIme : MonoBehaviour
     void Start()
     {
         timeRemaining = timeLimit;
-        scoreManager = FindAnyObjectByType<ScoreManager>(); // Find the ScoreManager script in the scene
+        scoreManager = UnityHelpers.FindObjectOfType<ScoreManager>(); // Find the ScoreManager script in the scene
     }
     void Update()
     {

@@ -18,8 +18,8 @@ public class Player_collison_handler : MonoBehaviour
     void Start()
     {
         // Get the LevelSpawner component attached to the same GameObject
-        levelSpawner = FindAnyObjectByType<LevelSpawner>();
-        scoreManager = FindAnyObjectByType<ScoreManager>(); // Get the ScoreManager component
+        levelSpawner = UnityHelpers.FindObjectOfType<LevelSpawner>();
+        scoreManager = UnityHelpers.FindObjectOfType<ScoreManager>(); // Get the ScoreManager component
     }
     void Update()
     {

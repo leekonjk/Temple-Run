@@ -35,8 +35,6 @@ public class obstacle_spwaner : MonoBehaviour
 
     private void spwanObstracle()
     {
-
-
         int seletcedLane_2 = Random.Range(0, distance_at_which_lane_spwan.Length);
         for (int i = 0; i < seletcedLane_2; i++)
         {
@@ -44,14 +42,12 @@ public class obstacle_spwaner : MonoBehaviour
             {
                 return;
             }
-            int randomIndex = SpwanRandomNumber(avaliablelanes);
+            int randomIndex = RandomSelectionHelper.SelectAndRemoveRandomIndex(avaliablelanes);
 
-            Vector3 spwanLocation = new Vector3(distance_at_which_lane_spwan[randomIndex], transform.position.y, transform.position.z);
+            Vector3 spwanLocation = GetSpawnPosition(randomIndex);
             Instantiate(obstacle, spwanLocation, Quaternion.identity, this.transform);
         }
-
     }
-
 
     private void spwanApple()
     {
@@ -59,12 +55,13 @@ public class obstacle_spwaner : MonoBehaviour
         {
             return;
         }
-        int randomIndex = SpwanRandomNumber(avaliablelanes);
+        int randomIndex = RandomSelectionHelper.SelectAndRemoveRandomIndex(avaliablelanes);
 
-        Vector3 spwanLocation = new Vector3(distance_at_which_lane_spwan[randomIndex], transform.position.y, transform.position.z);
+        Vector3 spwanLocation = GetSpawnPosition(randomIndex);
         apple Apple2 = Instantiate(Apple, spwanLocation, Quaternion.identity, this.transform).GetComponent<apple>();
         Apple2.initialize(levelGenerator);
     }
+    
     private void spwanCoin()
     {
         if (Random.value > CoinSpwanChance || avaliablelanes.Count <= 0)
@@ -73,7 +70,7 @@ public class obstacle_spwaner : MonoBehaviour
         }
 
         int xyz = Random.Range(0, 6);
-        int randomIndex = SpwanRandomNumber(avaliablelanes);
+        int randomIndex = RandomSelectionHelper.SelectAndRemoveRandomIndex(avaliablelanes);
         float topvalueOFZ = transform.position.z + (distance_between_coin_y * 2F);
         for (int i = 0; i < xyz; i++)
         {
@@ -82,13 +79,13 @@ public class obstacle_spwaner : MonoBehaviour
             coin coin2 = Instantiate(Coin, spwanLocation, Quaternion.identity, this.transform).GetComponent<coin>();
             coin2.initialize(scoreManager);
         }
-
     }
-    private static int SpwanRandomNumber(List<int> avaliablelanes)
+    
+    /// <summary>
+    /// Creates a spawn position at the specified lane index
+    /// </summary>
+    private Vector3 GetSpawnPosition(int laneIndex)
     {
-        int selectedLane = Random.Range(0, avaliablelanes.Count);
-        int randomIndex = avaliablelanes[selectedLane];
-        avaliablelanes.RemoveAt(selectedLane);
-        return randomIndex;
+        return new Vector3(distance_at_which_lane_spwan[laneIndex], transform.position.y, transform.position.z);
     }
 }
