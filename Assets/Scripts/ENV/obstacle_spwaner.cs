@@ -75,7 +75,8 @@ public class obstacle_spwaner : MonoBehaviour
         for (int i = 0; i < xyz; i++)
         {
             float randomz = topvalueOFZ - (i * distance_between_coin_y);
-            Vector3 spwanLocation = new Vector3(distance_at_which_lane_spwan[randomIndex], transform.position.y, randomz);
+            Vector3 spwanLocation = GetSpawnPosition(randomIndex);
+            spwanLocation.z = randomz;
             coin coin2 = Instantiate(Coin, spwanLocation, Quaternion.identity, this.transform).GetComponent<coin>();
             coin2.initialize(scoreManager);
         }
