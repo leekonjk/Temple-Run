@@ -14,24 +14,4 @@ public static class UnityHelpers
     {
         return Object.FindAnyObjectByType<T>();
     }
-    
-    /// <summary>
-    /// Clamps a value and returns whether it was changed
-    /// </summary>
-    public static bool ClampValue(ref float value, float min, float max)
-    {
-        float originalValue = value;
-        value = Mathf.Clamp(value, min, max);
-        return !Mathf.Approximately(originalValue, value);
-    }
-    
-    /// <summary>
-    /// Clamps an integer value and returns whether it was changed
-    /// </summary>
-    public static bool ClampValue(ref int value, int min, int max)
-    {
-        int originalValue = value;
-        value = Mathf.Clamp(value, min, max);
-        return originalValue != value;
-    }
 }

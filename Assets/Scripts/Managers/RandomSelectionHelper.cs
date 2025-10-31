@@ -45,46 +45,54 @@ public static class RandomSelectionHelper
             return default(T);
         }
         
-        // Build lists of valid indices and weights
-        List<int> validIndices = new List<int>();
-        List<float> validWeights = new List<float>();
+        // Calculate total weight, excluding the specified index
+        float totalWeight = 0f;
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (i != excludeIndex)
+            {
+                totalWeight += weights[i];
+            }
+        }
+        
+        if (totalWeight <= 0f)
+        {
+            Debug.LogWarning("No valid items after exclusion or all weights are zero");
+            // Return first non-excluded item
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (i != excludeIndex)
+                {
+                    return items[i];
+                }
+            }
+            return items[0];
+        }
+        
+        // Weighted random selection without allocating lists
+        float randomValue = Random.value * totalWeight;
+        float accumulator = 0f;
         
         for (int i = 0; i < items.Length; i++)
         {
             if (i != excludeIndex)
             {
-                validIndices.Add(i);
-                validWeights.Add(weights[i]);
+                accumulator += weights[i];
+                if (randomValue <= accumulator)
+                {
+                    return items[i];
+                }
             }
         }
         
-        if (validIndices.Count == 0)
+        // Fallback to first non-excluded item
+        for (int i = 0; i < items.Length; i++)
         {
-            Debug.LogWarning("No valid indices after exclusion");
-            return items[0];
-        }
-        
-        // Calculate total weight
-        float totalWeight = 0f;
-        foreach (float w in validWeights)
-        {
-            totalWeight += w;
-        }
-        
-        // Weighted random selection
-        float randomValue = Random.value * totalWeight;
-        float accumulator = 0f;
-        
-        for (int i = 0; i < validIndices.Count; i++)
-        {
-            accumulator += validWeights[i];
-            if (randomValue <= accumulator)
+            if (i != excludeIndex)
             {
-                return items[validIndices[i]];
+                return items[i];
             }
         }
-        
-        // Fallback to first valid item
-        return items[validIndices[0]];
+        return items[0];
     }
 }
