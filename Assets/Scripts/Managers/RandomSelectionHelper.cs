@@ -66,7 +66,9 @@ public static class RandomSelectionHelper
                     return items[i];
                 }
             }
-            return items[0];
+            // All items excluded - return default
+            Debug.LogError("All items excluded or no valid items found");
+            return default(T);
         }
         
         // Weighted random selection without allocating lists
@@ -85,7 +87,7 @@ public static class RandomSelectionHelper
             }
         }
         
-        // Fallback to first non-excluded item
+        // Fallback to first non-excluded item (should not reach here normally)
         for (int i = 0; i < items.Length; i++)
         {
             if (i != excludeIndex)
@@ -93,6 +95,9 @@ public static class RandomSelectionHelper
                 return items[i];
             }
         }
-        return items[0];
+        
+        // Edge case: no items found (should not happen if totalWeight > 0)
+        Debug.LogError("Weighted selection fallback failed - returning default");
+        return default(T);
     }
 }
