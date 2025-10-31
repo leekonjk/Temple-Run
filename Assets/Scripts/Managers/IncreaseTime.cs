@@ -8,12 +8,12 @@ public class IncreaseTime : MonoBehaviour
     void Start()
     {
         // Find the GameTIme script in the scene
-        gameTime = FindAnyObjectByType<GameTIme>();
+        gameTime = UnityHelpers.FindObjectOfType<GameTIme>();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(GameConstants.PlayerTag))
         {
             gameTime.IncreaseTime(10f); // Increase time by 10 seconds
             Destroy(gameObject); // Destroy the object after increasing time

@@ -34,12 +34,12 @@ public class LevelSpawner : MonoBehaviour
     public void Move_chunks_speed(int speed)
     {
         float new_move_speed_chunk = move_speed_chunk + speed;
-        new_move_speed_chunk = Mathf.Clamp(new_move_speed_chunk, 5f, 20f); // Clamp the speed to a reasonable range
+        new_move_speed_chunk = Mathf.Clamp(new_move_speed_chunk, GameConstants.MinMoveSpeed, GameConstants.MaxMoveSpeed); // Clamp the speed to a reasonable range
         if (new_move_speed_chunk != move_speed_chunk)
         {
             move_speed_chunk = (int)new_move_speed_chunk;
             float newG = Physics.gravity.z - speed;
-            newG = Mathf.Clamp(newG, -22f, 2f); // Clamp the gravity to a reasonable range
+            newG = Mathf.Clamp(newG, GameConstants.MinGravityZ, GameConstants.MaxGravityZ); // Clamp the gravity to a reasonable range
             Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, newG);
             camera_Controll.ChangeCameraFOV(speed);
         }
@@ -116,31 +116,7 @@ public class LevelSpawner : MonoBehaviour
             lastIndex = System.Array.IndexOf(Chunks_Varinats, lastChunk.name.Contains("(Clone)") ? lastChunk.name.Replace(" (Clone)", "") : lastChunk.name);
         }
 
-        // Build a list of valid indices and their weights
-        List<int> validIndices = new List<int>();
-        List<float> validWeights = new List<float>();
-        for (int i = 0; i < Chunks_Varinats.Length; i++)
-        {
-            if (i != lastIndex)
-            {
-                validIndices.Add(i);
-                validWeights.Add(weights[i]);
-            }
-        }
-
-        // Weighted random selection
-        float totalWeight = 0f;
-        foreach (float w in validWeights) totalWeight += w;
-        float rnd = UnityEngine.Random.value * totalWeight;
-        float accum = 0f;
-        for (int i = 0; i < validIndices.Count; i++)
-        {
-            accum += validWeights[i];
-            if (rnd <= accum)
-                return Chunks_Varinats[validIndices[i]];
-        }
-        // Fallback
-        return Chunks_Varinats[validIndices[0]];
+        return RandomSelectionHelper.WeightedRandomSelection(Chunks_Varinats, weights, lastIndex);
     }
 
     private Vector3 get_Position()
